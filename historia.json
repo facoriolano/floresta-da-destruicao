@@ -39,7 +39,22 @@
         }
     },
     "6": {
-        "texto": "Você encontra uma clareira tranquila. Por enquanto, está tudo calmo."
+        "texto": "Você encontra uma clareira com dois caminhos, mas há armadilhas ao redor. Será que você tem sorte?",
+        "teste_sorte": true,
+        "se_sorte": "7",
+        "se_azar": "8"
+    },
+    "7": {
+        "texto": "Você passa ileso pelas armadilhas e encontra um caminho seguro para o norte.",
+        "escolhas": {
+            "Seguir para o norte": "99"
+        }
+    },
+    "8": {
+        "texto": "Uma armadilha é acionada! Você perde 3 pontos de energia.",
+        "escolhas": {
+            "Voltar pelo caminho anterior": "4"
+        }
     },
     "99": {
         "texto": "Você decide não entrar na floresta hoje. Talvez outro dia."
