@@ -2,13 +2,13 @@ import json
 from combate import combate
 from inventario import adicionar_item, comer_provisao, mostrar_inventario
 from sorte import testar_sorte
+from salvar import salvar_jogo
 
 def carregar_historia():
     with open("historia.json", "r", encoding="utf-8") as f:
         return json.load(f)
 
-def iniciar_jogo(personagem, historia):
-    paragrafo = "1"
+def iniciar_jogo(personagem, historia, paragrafo="1"):
     while paragrafo in historia:
         conteudo = historia[paragrafo]
         print(f"\n[{paragrafo}] {conteudo['texto']}\n")
@@ -36,9 +36,16 @@ def iniciar_jogo(personagem, historia):
         mostrar_inventario(personagem)
 
         if "escolhas" in conteudo:
-            for i, (opcao, destino) in enumerate(conteudo["escolhas"].items(), 1):
+            opcoes = list(conteudo["escolhas"].items())
+            for i, (opcao, destino) in enumerate(opcoes, 1):
                 print(f"{i}. {opcao}")
+            print(f"{len(opcoes)+1}. Salvar e sair")
             escolha = int(input("Escolha: ")) - 1
-            paragrafo = list(conteudo["escolhas"].values())[escolha]
+
+            if escolha == len(opcoes):
+                salvar_jogo(personagem, paragrafo)
+                return
+            else:
+                paragrafo = opcoes[escolha][1]
         else:
             break
