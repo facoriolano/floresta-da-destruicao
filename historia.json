@@ -8,10 +8,17 @@
     },
     "2": {
         "texto": "Você caminha por uma trilha estreita e ouve sons estranhos ao redor. Um goblin salta à sua frente!",
+        "combate": {
+            "nome": "Goblin",
+            "habilidade": 5,
+            "energia": 4
+        },
         "escolhas": {
-            "Lutar com o goblin": "3",
-            "Tentar fugir": "4"
+            "Seguir adiante": "3"
         }
+    },
+    "3": {
+        "texto": "Você segue pelo caminho e encontra uma bifurcação."
     },
     "99": {
         "texto": "Você decide não entrar na floresta hoje. Talvez outro dia."
