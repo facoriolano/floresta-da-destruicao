@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>A Floresta da Destruição</title>
+  <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+  <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+  <style>
+    body {
+      font-family: 'Courier New', monospace;
+      background-color: #111;
+      color: #0f0;
+      padding: 20px;
+    }
+    #output {
+      white-space: pre-wrap;
+      border: 1px solid #0f0;
+      padding: 10px;
+      min-height: 300px;
+      margin-bottom: 20px;
+    }
+    input {
+      background: #000;
+      color: #0f0;
+      border: 1px solid #0f0;
+      padding: 8px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>A Floresta da Destruição</h1>
+  <div id="output">Carregando o jogo...</div>
+  <input id="entrada" placeholder="Digite sua ação e pressione Enter" />
+
+  <py-config>
+    packages = ["micropip"]
+    [[fetch]]
+    files = ["main_web.py", "historia.json"]
+  </py-config>
+
+  <py-script src="main_web.py"></py-script>
+</body>
+</html>
