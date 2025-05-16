@@ -43,6 +43,26 @@ def atualizar_status():
     )
     status_box.innerText = status_texto
 
+def carregar_progresso():
+    global personagem, paragrafo_atual
+    progresso_salvo = localStorage.getItem("aventura_progresso")
+    if progresso_salvo:
+        try:
+            dados = json.loads(progresso_salvo)
+            paragrafo_atual = dados["paragrafo_atual"]
+            personagem.update(dados["personagem"])
+            return True
+        except Exception as e:
+            exibir(f"⚠️ Erro ao carregar progresso: {e}")
+    return False
+
+def salvar_progresso():
+    progresso = {
+        "paragrafo_atual": paragrafo_atual,
+        "personagem": personagem
+    }
+    localStorage.setItem("aventura_progresso", json.dumps(progresso))
+
 def mostrar_mensagem_final(texto):
     mensagem_final.innerText = texto
     mensagem_final.style.display = "block"
@@ -61,10 +81,13 @@ def reiniciar_jogo(event=None):
     entrada.disabled = False
     entrada.focus()
     mostrar_paragrafo()
+    localStorage.removeItem("aventura_progresso")
+
 
 def mudar_paragrafo(novo):
     global paragrafo_atual
     paragrafo_atual = novo
+    salvar_progresso()
     mostrar_paragrafo()
 
 def adicionar_item(personagem, item):
@@ -161,4 +184,10 @@ entrada.addEventListener("keypress", create_proxy(lambda e: processar_entrada(e)
 botao_reiniciar.addEventListener("click", create_proxy(reiniciar_jogo))
 
 # Começa o jogo
-reiniciar_jogo()
+# Começa o jogo: tenta carregar o progresso salvo
+if not carregar_progresso():
+    reiniciar_jogo()
+else:
+    esconder_finais()
+    mostrar_paragrafo()
+
