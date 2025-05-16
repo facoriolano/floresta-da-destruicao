@@ -1,6 +1,7 @@
 import json
 from combate import combate
 from inventario import adicionar_item, comer_provisao, mostrar_inventario
+from sorte import testar_sorte
 
 def carregar_historia():
     with open("historia.json", "r", encoding="utf-8") as f:
@@ -24,6 +25,13 @@ def iniciar_jogo(personagem, historia):
 
         if "comer" in conteudo and conteudo["comer"]:
             comer_provisao(personagem)
+
+        if "teste_sorte" in conteudo and conteudo["teste_sorte"]:
+            if testar_sorte(personagem):
+                paragrafo = conteudo["se_sorte"]
+            else:
+                paragrafo = conteudo["se_azar"]
+            continue
 
         mostrar_inventario(personagem)
 
