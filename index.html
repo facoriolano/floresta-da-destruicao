@@ -12,6 +12,12 @@
       color: #0f0;
       padding: 20px;
     }
+    #status {
+      border: 1px solid #0f0;
+      padding: 10px;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
     #output {
       white-space: pre-wrap;
       border: 1px solid #0f0;
@@ -25,13 +31,30 @@
       border: 1px solid #0f0;
       padding: 8px;
       width: 100%;
+      margin-bottom: 10px;
+    }
+    button {
+      background: #000;
+      color: #0f0;
+      border: 1px solid #0f0;
+      padding: 8px;
+      width: 100%;
+      display: none;
     }
   </style>
 </head>
 <body>
   <h1>A Floresta da Destruição</h1>
+
+  <!-- NOVO BLOCO DE STATUS -->
+  <div id="status">Carregando status...</div>
+
   <div id="output">Carregando o jogo...</div>
+
   <input id="entrada" placeholder="Digite sua ação e pressione Enter" />
+  
+  <!-- NOVO BOTÃO DE REINÍCIO -->
+  <button id="reiniciar">🔁 Reiniciar aventura</button>
 
   <py-config>
     packages = ["micropip"]
