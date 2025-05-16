@@ -69,6 +69,14 @@ def mostrar_paragrafo():
     else:
         exibir("🔚 Fim do caminho.")
 
+if "combate" in conteudo:
+    inimigo = conteudo["combate"]
+    resultado = combate(personagem, inimigo)
+    if not resultado:
+        exibir("💀 Você perdeu o combate e morreu. Fim de jogo.")
+        esperando_entrada = False
+        return
+
 def mudar_paragrafo(novo):
     global paragrafo_atual
     paragrafo_atual = novo
