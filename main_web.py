@@ -87,6 +87,33 @@ def processar_entrada(evt):
     if not esperando_entrada:
         return
 
+
+def adicionar_item(personagem, item):
+    personagem["mochila"].append(item)
+    exibir(f"📦 Você ganhou: {item}")
+
+def comer_provisao(personagem):
+    if personagem["provisoes"] > 0:
+        personagem["energia"] += 4
+        personagem["provisoes"] -= 1
+        exibir("🍞 Você comeu uma provisão (+4 energia).")
+    else:
+        exibir("❌ Você não tem provisões.")
+
+def testar_sorte(personagem):
+    from random import randint
+    dado = randint(2, 12)
+    exibir(f"🎲 Teste de sorte! Você tirou {dado}")
+    personagem["sorte"] -= 1
+    if dado <= personagem["sorte"]:
+        exibir("🍀 Sorte! Você ganhou o teste.")
+        return True
+    else:
+        exibir("💀 Azar! Você perdeu o teste.")
+        return False
+
+    
+
     valor = entrada.value.strip()
     entrada.value = ""
 
