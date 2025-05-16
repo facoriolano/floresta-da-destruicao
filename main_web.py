@@ -1,3 +1,4 @@
+from combate_web import combate
 import json
 from pyodide.ffi import create_proxy
 from js import document
