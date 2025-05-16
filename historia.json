@@ -18,7 +18,28 @@
         }
     },
     "3": {
-        "texto": "Você segue pelo caminho e encontra uma bifurcação."
+        "texto": "Você encontra uma mochila velha no chão. Dentro há uma chave enferrujada.",
+        "ganhar_item": "Chave enferrujada",
+        "escolhas": {
+            "Seguir para a esquerda": "4",
+            "Seguir para a direita": "5"
+        }
+    },
+    "4": {
+        "texto": "Você faz uma pausa sob uma árvore e decide comer.",
+        "comer": true,
+        "escolhas": {
+            "Continuar andando": "6"
+        }
+    },
+    "5": {
+        "texto": "Você escorrega num barranco e volta ao início.",
+        "escolhas": {
+            "Recomeçar": "1"
+        }
+    },
+    "6": {
+        "texto": "Você encontra uma clareira tranquila. Por enquanto, está tudo calmo."
     },
     "99": {
         "texto": "Você decide não entrar na floresta hoje. Talvez outro dia."
