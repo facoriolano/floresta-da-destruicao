@@ -1,3 +1,19 @@
+// Adicione no início do script.js
+const correctSound = new Audio('correct.mp3');
+const wrongSound = new Audio('wrong.mp3');
+
+// Use nas funções handleCorrectGuess e handleWrongGuess
+function handleCorrectGuess() {
+    correctSound.play();
+    // ... resto do código
+}
+
+function handleWrongGuess() {
+    wrongSound.play();
+    // ... resto do código
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
     // Elementos DOM
     const numberBoard = document.getElementById('number-board');
