@@ -153,3 +153,30 @@ button {
         width: 150px;
     }
 }
+
+
+/* Adicione no style.css */
+.dark-theme {
+    background: #1a1a2e;
+    color: #fff;
+}
+
+.dark-theme .container {
+    background: #16213e;
+}
+
+.dark-theme .number-cell {
+    border-color: #0f3460;
+}
+
+.dark-theme .number-cell:hover {
+    background: #0f3460;
+}
+
+.dark-theme #new-game-btn {
+    background: #4cc9f0;
+}
+
+.dark-theme #reset-btn {
+    background: #f72585;
+}
