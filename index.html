@@ -1,69 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>A Floresta da Destruição</title>
-  <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-  <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-  <style>
-    body {
-      font-family: 'Courier New', monospace;
-      background-color: #111;
-      color: #0f0;
-      padding: 20px;
-    }
-    #output {
-      white-space: pre-wrap;
-      border: 1px solid #0f0;
-      padding: 10px;
-      min-height: 300px;
-      margin-bottom: 20px;
-    }
-    #status {
-      white-space: pre-wrap;
-      border: 1px solid #0f0;
-      padding: 10px;
-      margin-bottom: 20px;
-      background-color: #000;
-    }
-    #mensagem-final {
-      font-size: 1.5em;
-      color: #f00;
-      font-weight: bold;
-      margin-bottom: 20px;
-      display: none;
-    }
-    input {
-      background: #000;
-      color: #0f0;
-      border: 1px solid #0f0;
-      padding: 8px;
-      width: 100%;
-    }
-    button {
-      background-color: #000;
-      color: #0f0;
-      border: 1px solid #0f0;
-      padding: 10px;
-      display: none;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ian Livingstone - Jogo de Números</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>A Floresta da Destruição</h1>
+    <div class="container">
+        <h1>Ian Livingstone</h1>
+        <div class="game-info">
+            <p>Pontuação: <span id="score">0</span></p>
+            <p>Melhor Pontuação: <span id="high-score">0</span></p>
+        </div>
 
-  <div id="status"></div>
-  <div id="output">Carregando o jogo...</div>
-  <div id="mensagem-final"></div>
-  <input id="entrada" placeholder="Digite sua ação e pressione Enter" />
-  <button id="reiniciar">🔄 Reiniciar Aventura</button>
+        <div class="game-controls">
+            <button id="new-game-btn">Novo Jogo</button>
+            <button id="reset-btn">Reiniciar</button>
+        </div>
 
-  <py-config>
-    packages = ["micropip"]
-    [[fetch]]
-    files = ["main_web.py", "historia.json"]
-  </py-config>
+        <div class="board">
+            <div class="number-board" id="number-board"></div>
+        </div>
 
-  <py-script src="main_web.py"></py-script>
+        <div class="game-message" id="game-message"></div>
+
+        <div class="input-section">
+            <input type="number" id="number-input" min="1" max="25" placeholder="Digite um número">
+            <button id="submit-btn">Verificar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
