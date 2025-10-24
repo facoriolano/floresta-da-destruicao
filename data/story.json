@@ -1,0 +1,161 @@
+{
+    "1": {
+        "text": "Você se encontra na entrada da Floresta da Sombra Negra. O cheiro de terra molhada e folhas podres paira no ar. Você está aqui para recuperar o Olho de Gárgula, um artefato lendário que foi roubado do Templo de Stonebridge. A floresta é escura e perigosa, mas você é corajoso. Que caminho você toma?",
+        "image": "forest_entrance.png",
+        "choices": [
+            {"text": "Seguir a trilha estreita para o Leste, onde você vê uma luz fraca.", "goto": 2},
+            {"text": "Aventurar-se pela densa vegetação ao Norte, onde você ouve sons estranhos.", "goto": 3}
+        ],
+        "event": null
+    },
+    "2": {
+        "text": "A trilha para o Leste leva a uma clareira onde um Goblin faminto espera. Ele te desafia para um combate! Seus olhos vermelhos brilham na penumbra.",
+        "image": "goblin.png",
+        "choices": [],
+        "event": {
+            "type": "combat",
+            "enemy": {"name": "Goblin", "skill": 5, "stamina": 4}
+        }
+    },
+    "3": {
+        "text": "Você se aventura pela vegetação densa. Depois de caminhar por um tempo, você encontra uma pequena cabana abandonada. Dentro dela, há uma caixa de madeira antiga. Você a abre e encontra uma Poção de Cura! Você ganha +3 de Energia. Agora, você continua pela trilha.",
+        "image": "forest_entrance.png",
+        "choices": [
+            {"text": "Seguir para o Sul, em direção a um som de água corrente.", "goto": 4},
+            {"text": "Voltar e seguir para o Leste.", "goto": 2}
+        ],
+        "event": {
+            "type": "item",
+            "item": "Poção de Cura",
+            "effect": {"stamina": 3}
+        }
+    },
+    "4": {
+        "text": "Você chega a um rio rápido. Há uma ponte de corda antiga que atravessa o rio. A ponte parece frágil e perigosa. Você tenta atravessá-la, mas precisa fazer um Teste de Sorte para não cair!",
+        "image": "forest_entrance.png",
+        "choices": [],
+        "event": {
+            "type": "luck_test",
+            "text": "Teste de Sorte para não cair na ponte!",
+            "success": 5,
+            "failure": 6
+        }
+    },
+    "5": {
+        "text": "Você consegue atravessar a ponte com sucesso! Do outro lado, você vê uma caverna escura. Você ouve um rugido vindo de dentro. Você está pronto para enfrentar o que vier?",
+        "image": "forest_entrance.png",
+        "choices": [
+            {"text": "Entrar na caverna e explorar.", "goto": 7},
+            {"text": "Contornar a caverna e seguir para o Leste.", "goto": 8}
+        ],
+        "event": null
+    },
+    "6": {
+        "text": "Você não consegue manter o equilíbrio! Você cai na água gelada do rio e é arrastado pela correnteza. Você consegue se agarrar a uma rocha e sai da água, mas perde 2 pontos de Energia. Você sai da água tremendo e segue em frente.",
+        "image": "forest_entrance.png",
+        "choices": [
+            {"text": "Continuar em frente, procurando um lugar seguro para descansar.", "goto": 8}
+        ],
+        "event": {
+            "type": "damage",
+            "damage": 2
+        }
+    },
+    "7": {
+        "text": "Você entra na caverna escura. Seus olhos se ajustam à penumbra e você vê uma figura grande se movendo. É um Troll! O monstro te vê e ruge, preparando-se para atacar!",
+        "image": "troll.png",
+        "choices": [],
+        "event": {
+            "type": "combat",
+            "enemy": {"name": "Troll", "skill": 8, "stamina": 8}
+        }
+    },
+    "8": {
+        "text": "Você contorna a caverna e continua caminhando pela floresta. Depois de um tempo, você encontra uma encruzilhada com três caminhos. Um deles brilha com uma luz verde estranha. Qual caminho você escolhe?",
+        "image": "forest_entrance.png",
+        "choices": [
+            {"text": "Seguir o caminho com a luz verde estranha.", "goto": 9},
+            {"text": "Seguir o caminho à esquerda, que parece mais seguro.", "goto": 10},
+            {"text": "Seguir o caminho à direita, que desce para uma ravina.", "goto": 11}
+        ],
+        "event": null
+    },
+    "9": {
+        "text": "Você segue a luz verde e chega a um templo antigo coberto de musgo. Dentro do templo, você vê um altar com o Olho de Gárgula brilhando! Mas há uma armadilha mágica ao redor dele. Você precisa fazer um Teste de Habilidade para conseguir o artefato sem ativar a armadilha!",
+        "image": "gargoyle_eye.png",
+        "choices": [],
+        "event": {
+            "type": "skill_test",
+            "text": "Teste de Habilidade para pegar o Olho de Gárgula sem ativar a armadilha!",
+            "success": 12,
+            "failure": 13
+        }
+    },
+    "10": {
+        "text": "Você segue o caminho à esquerda e encontra um acampamento abandonado. Há uma barraca e alguns suprimentos. Você encontra uma Espada Mágica! Sua Habilidade aumenta em +2. Você agora se sente mais confiante.",
+        "image": "forest_entrance.png",
+        "choices": [
+            {"text": "Continuar pela floresta com sua nova arma.", "goto": 14}
+        ],
+        "event": {
+            "type": "item",
+            "item": "Espada Mágica",
+            "effect": {"skill": 2}
+        }
+    },
+    "11": {
+        "text": "Você segue o caminho à direita e desce para uma ravina profunda. No fundo, você vê uma cidade subterrânea antiga. Você desce cuidadosamente e explora a cidade. Você encontra um pergaminho antigo que aumenta sua Sorte em +1. Você sente que está no caminho certo!",
+        "image": "forest_entrance.png",
+        "choices": [
+            {"text": "Voltar para a superfície e procurar o Olho de Gárgula.", "goto": 8}
+        ],
+        "event": {
+            "type": "item",
+            "item": "Pergaminho Antigo",
+            "effect": {"luck": 1}
+        }
+    },
+    "12": {
+        "text": "Você consegue pegar o Olho de Gárgula com sucesso! A armadilha não é acionada. O artefato brilha em suas mãos, quente e poderoso. Você conseguiu! Agora você precisa sair da floresta e voltar para Stonebridge.",
+        "image": "gargoyle_eye.png",
+        "choices": [
+            {"text": "Sair da floresta e voltar para casa.", "goto": 15}
+        ],
+        "event": {
+            "type": "item",
+            "item": "Olho de Gárgula",
+            "effect": {}
+        }
+    },
+    "13": {
+        "text": "Você tenta pegar o Olho de Gárgula, mas a armadilha é acionada! Uma explosão mágica te atinge! Você perde 4 pontos de Energia. Você consegue escapar do templo, mas está ferido. Você precisa encontrar outro caminho para conseguir o artefato.",
+        "image": "forest_entrance.png",
+        "choices": [
+            {"text": "Voltar para a encruzilhada e tentar outro caminho.", "goto": 8}
+        ],
+        "event": {
+            "type": "damage",
+            "damage": 4
+        }
+    },
+    "14": {
+        "text": "Você continua pela floresta com sua Espada Mágica. Depois de caminhar por um tempo, você chega de volta à encruzilhada. Você vê a luz verde do templo novamente. Você está pronto para tentar conseguir o Olho de Gárgula?",
+        "image": "forest_entrance.png",
+        "choices": [
+            {"text": "Seguir o caminho com a luz verde novamente.", "goto": 9}
+        ],
+        "event": null
+    },
+    "15": {
+        "text": "Você conseguiu! Você escapou da Floresta da Sombra Negra com o Olho de Gárgula em suas mãos! Você volta para Stonebridge e entrega o artefato ao Templo. Os sacerdotes o agradecem e você se torna um herói! Sua aventura termina aqui, mas você sabe que haverá outras aventuras esperando por você.",
+        "image": "gargoyle_eye.png",
+        "choices": [
+            {"text": "Jogar novamente.", "goto": "restart"}
+        ],
+        "event": {
+            "type": "end",
+            "ending": "victory"
+        }
+    }
+}
+
