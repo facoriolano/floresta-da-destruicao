@@ -1,1 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floresta da Sombra Negra - Livro-Jogo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Tela de Título -->
+        <div id="title-screen" class="screen active">
+            <div class="title-content">
+                <h1>FLORESTA DA SOMBRA NEGRA</h1>
+                <p class="subtitle">Um Livro-Jogo de Aventura</p>
+                <div class="title-image">
+                    <img src="assets/images/forest_entrance.png" alt="Floresta">
+                </div>
+                <button id="start-button" class="button">INICIAR JOGO</button>
+                <p class="credits">Inspirado em Fighting Fantasy</p>
+            </div>
+        </div>
+
+        <!-- Tela de Criação de Personagem -->
+        <div id="character-screen" class="screen">
+            <div class="character-content">
+                <h2>CRIAR PERSONAGEM</h2>
+                <p>Clique no botão abaixo para rolar os dados e criar seu herói!</p>
+                
+                <button id="roll-stats-button" class="button">ROLAR DADOS</button>
+                
+                <div id="stats-display" class="stats-display">
+                    <div class="stat">
+                        <label>HABILIDADE:</label>
+                        <span id="skill-value">-</span>
+                    </div>
+                    <div class="stat">
+                        <label>ENERGIA:</label>
+                        <span id="stamina-value">-</span>
+                    </div>
+                    <div class="stat">
+                        <label>SORTE:</label>
+                        <span id="luck-value">-</span>
+                    </div>
+                </div>
+                
+                <button id="confirm-character-button" class="button" disabled>CONFIRMAR</button>
+            </div>
+        </div>
+
+        <!-- Tela Principal do Jogo -->
+        <div id="game-screen" class="screen">
+            <div class="game-header">
+                <div class="header-stats">
+                    <div class="stat-bar">
+                        <label>HABILIDADE:</label>
+                        <span id="game-skill">-</span>
+                    </div>
+                    <div class="stat-bar">
+                        <label>ENERGIA:</label>
+                        <span id="game-stamina">-</span>
+                    </div>
+                    <div class="stat-bar">
+                        <label>SORTE:</label>
+                        <span id="game-luck">-</span>
+                    </div>
+                </div>
+                <div class="section-number">
+                    <span id="section-number">Seção 1</span>
+                </div>
+            </div>
+
+            <div class="game-content">
+                <div class="story-image">
+                    <img id="story-image" src="" alt="Cena">
+                </div>
+                
+                <div class="story-text">
+                    <p id="story-text"></p>
+                </div>
+                
+                <div id="choices-container" class="choices-container">
+                    <!-- As opções serão inseridas aqui dinamicamente -->
+                </div>
+
+                <div id="combat-container" class="combat-container" style="display: none;">
+                    <h3>COMBATE</h3>
+                    <div class="combat-info">
+                        <div class="combatant">
+                            <h4>VOCÊ</h4>
+                            <p>Habilidade: <span id="player-combat-skill">-</span></p>
+                            <p>Energia: <span id="player-combat-stamina">-</span></p>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="combatant">
+                            <h4 id="enemy-name">Inimigo</h4>
+                            <p>Habilidade: <span id="enemy-combat-skill">-</span></p>
+                            <p>Energia: <span id="enemy-combat-stamina">-</span></p>
+                        </div>
+                    </div>
+                    <div class="combat-log" id="combat-log"></div>
+                    <button id="attack-button" class="button">ATACAR</button>
+                    <button id="luck-test-button" class="button">TESTE DE SORTE</button>
+                </div>
+
+                <div id="luck-test-container" class="luck-test-container" style="display: none;">
+                    <h3>TESTE DE SORTE</h3>
+                    <p id="luck-test-text"></p>
+                    <button id="roll-luck-button" class="button">ROLAR DADOS</button>
+                    <div id="luck-result" class="luck-result"></div>
+                </div>
+            </div>
+
+            <button id="restart-button" class="button" style="display: none;">RECOMEÇAR</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
 
